@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ERA 30 — Pool After Dark</title>
+<meta name="description" content="A private invitation to ERA 30: Pool After Dark — October 3, Houston, Texas.">
+<meta name="theme-color" content="#05080c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<main>
+<section class="hero">
+<div class="palms p1"></div><div class="palms p2"></div>
+<div class="side-sign left">MEET ME<br>AT THE<br>HOTEL</div>
+<div class="side-sign right">EST.<br><b>1996</b></div>
+<div class="hero-content">
+<p class="eyebrow">A PRIVATE INVITATION</p>
+<h1><span>ERA</span><strong>30</strong></h1>
+<p class="subtitle">POOL AFTER DARK</p>
+<p class="date">OCTOBER 3 <i></i> HOUSTON, TEXAS</p>
+<div class="secret">◆ &nbsp; SECRET HOTEL LOCATION</div>
+<div class="countdown" id="countdown">
+<div><b id="cd-days">--</b><span>DAYS</span></div><div><b id="cd-hrs">--</b><span>HRS</span></div><div><b id="cd-min">--</b><span>MIN</span></div><div><b id="cd-sec">--</b><span>SEC</span></div>
+</div>
+</div>
+</section>
+<section class="pool">
+<div class="water"></div>
+<div class="rsvp-card" id="rsvp-section">
+<div id="rsvp-intro"><p class="card-kicker">YOU’RE ON THE LIST</p><p class="card-copy">Drop your info below to secure your spot.<br><span>The hotel location + arrival details will only be released to confirmed guests.</span></p></div>
+<form id="rsvp-form" novalidate>
+<div class="hp"><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<label><span>First & Last Name</span><input id="name" name="name" maxlength="80" autocomplete="name" placeholder="Your name"></label>
+<label><span>Mobile Number</span><input id="phone" name="phone" maxlength="16" inputmode="tel" autocomplete="tel" placeholder="(832) 555-1234"></label>
+<label><span>Number of Guests <small>(including you)</small></span><div class="guest"><button type="button" id="gc-minus">−</button><b id="gc-value">1</b><input type="hidden" id="guest-count" value="1"><button type="button" id="gc-plus">+</button></div></label>
+<label><span>Notes <small>(optional)</small></span><textarea id="notes" maxlength="500" placeholder="Questions or anything we should know"></textarea></label>
+<p id="form-error" class="error" role="alert"></p>
+<button class="cta" id="cta-btn" type="submit"><span class="cta-text">🔒 &nbsp; SECURE MY SPOT</span><span class="cta-loading">SAVING...</span></button>
+<p class="privacy">🔒 Private guest list. No spam. Just good people.</p>
+</form>
+<div class="confirmation" id="confirmation" aria-hidden="true"><h2>YOU’RE IN</h2><p>Your spot for <b>ERA 30: Pool After Dark</b> is confirmed.</p><div class="details">October 3<br>Houston, Texas<br>🔐 Hotel Location: Classified</div><p>The address + arrival instructions will be released to confirmed guests.</p><a href="sms:+18325890424">TEXT THE HOST</a><div class="actions"><button id="btn-calendar">ADD TO CALENDAR</button><button id="btn-share">SHARE</button></div></div>
+</div>
+<div class="quick-actions"><button id="share-bottom">↗<span>SHARE<br>THIS EVENT</span></button><button id="calendar-bottom">▣<span>ADD TO<br>CALENDAR</span></button><a href="sms:+18325890424">▤<span>TEXT<br>THE HOST</span></a><div>◇<span>GOOD VIBES<br>ONLY</span></div></div>
+<p class="footerline">HOUSTON, TEXAS &nbsp; | &nbsp; OCTOBER 3 &nbsp; | &nbsp; POOL AFTER DARK</p>
+<p class="script">Check In For the Night</p>
+</section>
+</main>
+<script src="script.js"></script>
+</body></html>

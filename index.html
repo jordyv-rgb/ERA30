@@ -1,52 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ERA 30 — Pool After Dark</title>
-<meta name="description" content="A private invitation to ERA 30: Pool After Dark — October 3, Houston, Texas.">
-<meta name="theme-color" content="#05080c">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ERA 30 — Pool After Dark</title>
+  <meta name="description" content="A private invitation to ERA 30: Pool After Dark — October 3, Houston, Texas.">
+  <meta name="theme-color" content="#080808">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<canvas id="confetti-canvas"></canvas>
-<main>
-<section class="hero">
-<div class="palms p1"></div><div class="palms p2"></div>
-<div class="side-sign left">MEET ME<br>AT THE<br>HOTEL</div>
-<div class="side-sign right">EST.<br><b>1996</b></div>
-<div class="hero-content">
-<p class="eyebrow">A PRIVATE INVITATION</p>
-<h1><span>ERA</span><strong>30</strong></h1>
-<p class="subtitle">POOL AFTER DARK</p>
-<p class="date">OCTOBER 3 <i></i> HOUSTON, TEXAS</p>
-<div class="secret">◆ &nbsp; SECRET HOTEL LOCATION</div>
-<div class="countdown" id="countdown">
-<div><b id="cd-days">--</b><span>DAYS</span></div><div><b id="cd-hrs">--</b><span>HRS</span></div><div><b id="cd-min">--</b><span>MIN</span></div><div><b id="cd-sec">--</b><span>SEC</span></div>
-</div>
-</div>
-</section>
-<section class="pool">
-<div class="water"></div>
-<div class="rsvp-card" id="rsvp-section">
-<div id="rsvp-intro"><p class="card-kicker">YOU’RE ON THE LIST</p><p class="card-copy">Drop your info below to secure your spot.<br><span>The hotel location + arrival details will only be released to confirmed guests.</span></p></div>
-<form id="rsvp-form" novalidate>
-<div class="hp"><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-<label><span>First & Last Name</span><input id="name" name="name" maxlength="80" autocomplete="name" placeholder="Your name"></label>
-<label><span>Mobile Number</span><input id="phone" name="phone" maxlength="16" inputmode="tel" autocomplete="tel" placeholder="(832) 555-1234"></label>
-<label><span>Number of Guests <small>(including you)</small></span><div class="guest"><button type="button" id="gc-minus">−</button><b id="gc-value">1</b><input type="hidden" id="guest-count" value="1"><button type="button" id="gc-plus">+</button></div></label>
-<label><span>Notes <small>(optional)</small></span><textarea id="notes" maxlength="500" placeholder="Questions or anything we should know"></textarea></label>
-<p id="form-error" class="error" role="alert"></p>
-<button class="cta" id="cta-btn" type="submit"><span class="cta-text">🔒 &nbsp; SECURE MY SPOT</span><span class="cta-loading">SAVING...</span></button>
-<p class="privacy">🔒 Private guest list. No spam. Just good people.</p>
-</form>
-<div class="confirmation" id="confirmation" aria-hidden="true"><h2>YOU’RE IN</h2><p>Your spot for <b>ERA 30: Pool After Dark</b> is confirmed.</p><div class="details">October 3<br>Houston, Texas<br>🔐 Hotel Location: Classified</div><p>The address + arrival instructions will be released to confirmed guests.</p><a href="sms:+18325890424">TEXT THE HOST</a><div class="actions"><button id="btn-calendar">ADD TO CALENDAR</button><button id="btn-share">SHARE</button></div></div>
-</div>
-<div class="quick-actions"><button id="share-bottom">↗<span>SHARE<br>THIS EVENT</span></button><button id="calendar-bottom">▣<span>ADD TO<br>CALENDAR</span></button><a href="sms:+18325890424">▤<span>TEXT<br>THE HOST</span></a><div>◇<span>GOOD VIBES<br>ONLY</span></div></div>
-<p class="footerline">HOUSTON, TEXAS &nbsp; | &nbsp; OCTOBER 3 &nbsp; | &nbsp; POOL AFTER DARK</p>
-<p class="script">Check In For the Night</p>
-</section>
-</main>
-<script src="script.js"></script>
-</body></html>
+
+  <!-- Confetti canvas — renders above everything on confirmation -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <main id="main">
+    <div class="ambient ambient-pink" aria-hidden="true"></div>
+    <div class="ambient ambient-blue" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" aria-label="Event details">
+
+      <div class="hero-glow"></div>
+      <div class="skyline" aria-hidden="true"></div>
+      <div class="palm palm-left" aria-hidden="true">✦</div>
+      <div class="palm palm-right" aria-hidden="true">✦</div>
+      <p class="eyebrow">A PRIVATE INVITATION</p>
+      <div class="wall-sign wall-sign-left" aria-hidden="true">MEET ME<br>AT THE<br>HOTEL</div>
+      <div class="wall-sign wall-sign-right" aria-hidden="true">EST.<br><strong>1996</strong></div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-top">ERA</span>
+        <span class="hero-title-big">30</span>
+      </h1>
+      <p class="hero-subtitle">Pool After Dark</p>
+
+      <div class="hero-meta">
+        <span>October 3</span>
+        <span class="meta-dot">·</span>
+        <span>Houston, Texas</span>
+      </div>
+
+      <div class="secret-badge" aria-label="Secret hotel location">
+        <span class="lock-icon">🔐</span>
+        <span>Secret Hotel Location</span>
+      </div>
+
+      <div>
+        <a class="music-link" href="https://www.youtube.com/watch?v=2up_Eq6r6Ko" target="_blank" rel="noopener noreferrer" aria-label="Play Hotel Room Service by Pitbull on YouTube">
+          <span class="music-link-icon" aria-hidden="true">▶</span>
+          <span>Play Hotel Room Service</span>
+        </a>
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown" aria-label="Countdown to event">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">--</span>
+          <span class="cd-label">Days</span>
+        </div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hrs">--</span>
+          <span class="cd-label">Hrs</span>
+        </div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-min">--</span>
+          <span class="cd-label">Min</span>
+        </div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-sec">--</span>
+          <span class="cd-label">Sec</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RSVP SECTION — form + confirmation share the same container
+         ============================================================ -->
+    <section class="rsvp-section" id="rsvp-section">
+
+      <!-- Intro copy -->
+      <div class="rsvp-intro" id="rsvp-intro">
+        <p class="intro-kicker">YOU’RE ON THE LIST</p>
+        <p class="intro-lead">Check in for the night.</p>
+        <p class="intro-body">Drop your info below to secure your spot.<br>
+          The hotel location + arrival details will only be released to confirmed&nbsp;guests.</p>
+      </div>
+
+      <!-- RSVP Form -->
+      <form id="rsvp-form" class="rsvp-form" novalidate autocomplete="off">
+
+        <!-- Honeypot — hidden from humans, bots fill it in -->
+        <div class="hp-field" aria-hidden="true" tabindex="-1">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
+        </div>
+
+        <!-- Name -->
+        <div class="field">
+          <label for="name">First & Last Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Your name"
+            maxlength="80"
+            autocomplete="name"
+          >
+        </div>
+
+        <!-- Phone -->
+        <div class="field">
+          <label for="phone">Mobile Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="(832) 555-1234"
+            maxlength="16"
+            inputmode="tel"
+            autocomplete="tel"
+          >
+        </div>
+
+        <!-- Guest Count -->
+        <div class="field">
+          <label>Number of Guests <span class="label-hint">(including you)</span></label>
+          <div class="guest-counter">
+            <button type="button" class="gc-btn gc-minus" id="gc-minus" aria-label="Decrease guest count">−</button>
+            <span class="gc-value" id="gc-value" aria-live="polite">1</span>
+            <input type="hidden" id="guest-count" name="guest_count" value="1">
+            <button type="button" class="gc-btn gc-plus" id="gc-plus" aria-label="Increase guest count">+</button>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="field field-optional">
+          <label for="notes">Notes <span class="label-hint">(optional)</span></label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="2"
+            placeholder="Dietary needs, questions, hype…"
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <!-- Error message -->
+        <div class="form-error" id="form-error" role="alert"></div>
+
+        <!-- Submit -->
+        <button type="submit" class="cta" id="cta-btn">
+          <span class="cta-text">Secure My Spot</span>
+          <span class="cta-loading" aria-hidden="true">
+            <span class="spinner"></span>
+          </span>
+        </button>
+      </form>
+
+      <!-- ============================================================
+           CONFIRMATION SCREEN — hidden until successful RSVP
+           ============================================================ -->
+      <div class="confirmation" id="confirmation" aria-hidden="true">
+        <h2 class="conf-heading">You're In 😎🍾</h2>
+
+        <p class="conf-sub">Your spot for<br>
+          <strong>ERA 30: Pool After Dark</strong><br>
+          is confirmed.</p>
+
+        <div class="conf-details">
+          <div class="conf-detail">📅 <span>October 3</span></div>
+          <div class="conf-detail">📍 <span>Houston, Texas</span></div>
+          <div class="conf-detail">🔐 <span>Hotel Location: Classified</span></div>
+        </div>
+
+        <p class="conf-note">The address + arrival instructions will be released to confirmed guests before the&nbsp;takeover.</p>
+        <div class="room-service-line">CHECK IN FOR THE NIGHT • GOOD ENERGY ONLY</div>
+
+        <div class="conf-contact">
+          <p class="conf-save">Save <strong>(832) 589-0424</strong> as <em>ERA 30</em></p>
+          <a href="sms:8325890424" class="btn-text-host">Text the Host</a>
+        </div>
+
+        <div class="conf-actions">
+          <button type="button" class="btn-secondary" id="btn-calendar">Add to Calendar</button>
+          <button type="button" class="btn-secondary" id="btn-share">Share</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIBE STRIP
+         ============================================================ -->
+    <div class="vibe-strip">
+      POOL AFTER DARK · HOUSTON · OCTOBER 3
+    </div>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer">
+      <p class="footer-tagline">BYOB · Wear Something Sexy · Good Energy Only</p>
+      <p class="footer-joke">CHECK IN FOR THE NIGHT</p>
+    </footer>
+
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

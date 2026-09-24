@@ -721,3 +721,70 @@ body {
   .hero { min-height: 680px; background-position:center top; }
   .wall-sign { display:none; }
 }
+
+
+/* Party-ready hero lockup: keep both wall signs visible at every phone width */
+.hero { isolation: isolate; overflow: hidden; }
+.hero-title { position: relative; z-index: 4; }
+.hero-title::before {
+  content: "♛";
+  display: block;
+  margin: 0 auto -0.2rem;
+  color: #d5b45e;
+  font-size: clamp(1.2rem, 3.7vw, 2rem);
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(213, 180, 94, .58), 0 0 22px rgba(201, 161, 76, .28);
+}
+.hero-title::after {
+  content: "";
+  display: block;
+  width: clamp(74px, 19vw, 126px);
+  height: 2px;
+  margin: .28rem auto 0;
+  background: linear-gradient(90deg, transparent, #d5b45e 20%, #f0d98b 50%, #d5b45e 80%, transparent);
+  box-shadow: 0 0 8px rgba(213, 180, 94, .72);
+}
+.wall-sign {
+  position: absolute;
+  z-index: 3;
+  color: #d7b55d;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  line-height: .82;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  opacity: .96;
+  text-shadow: 0 0 5px rgba(230, 196, 102, .85), 0 0 15px rgba(201, 161, 76, .48), 0 0 34px rgba(201, 161, 76, .25);
+  pointer-events: none;
+}
+.wall-sign-left {
+  left: clamp(8px, 2.8vw, 38px);
+  top: 28%;
+  transform: perspective(420px) rotateY(22deg) rotate(-2deg);
+  transform-origin: left center;
+  text-align: left;
+  font-size: clamp(.84rem, 2.9vw, 1.45rem);
+}
+.wall-sign-right {
+  right: clamp(8px, 2.8vw, 38px);
+  top: 31%;
+  transform: perspective(420px) rotateY(-22deg) rotate(2deg);
+  transform-origin: right center;
+  text-align: right;
+  font-size: clamp(.84rem, 2.9vw, 1.45rem);
+}
+.wall-sign-right strong { font-size: 1.34em; font-weight: 400; letter-spacing: .02em; }
+@media (max-width: 520px) {
+  .hero { min-height: 670px; padding-inline: 12px; }
+  .hero-title { margin-top: 1.2rem; }
+  .wall-sign { display: block !important; visibility: visible !important; }
+  .wall-sign-left { left: 7px; top: 29%; font-size: clamp(.72rem, 3.4vw, .98rem); max-width: 25vw; }
+  .wall-sign-right { right: 7px; top: 30%; font-size: clamp(.74rem, 3.5vw, 1rem); max-width: 22vw; }
+}
+@media (max-width: 390px) {
+  .hero { min-height: 650px; padding-inline: 8px; }
+  .hero-title-top { font-size: clamp(2.5rem, 14vw, 3.5rem); }
+  .hero-title-big { font-size: clamp(7.1rem, 38vw, 9.3rem); line-height: .78; }
+  .wall-sign-left { left: 5px; top: 30%; font-size: clamp(.68rem, 3.35vw, .84rem); max-width: 24vw; }
+  .wall-sign-right { right: 5px; top: 31%; font-size: clamp(.69rem, 3.4vw, .86rem); max-width: 21vw; }
+}

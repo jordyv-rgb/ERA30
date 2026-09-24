@@ -16,7 +16,7 @@
       │  It will look something like:                        │
       │  https://script.google.com/macros/s/AKfyc.../exec   │
       └──────────────────────────────────────────────────────┘ */
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOTwux13UKRj-Cgv5jI_TpXArD1foj04o2sIjr7pKvJEwf6uZZRqgKcZ2D1a4ZftT6DA/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywPpj3s2lQkxFG2vEaqRTbIwPTwZ6WeC-w3rZHUBLBxB2t8WqlUaKrvm2cZkO9YfFi/exec';
 
   // Countdown to the start of October 3 in Houston. No party start time has been announced yet.
   const EVENT_DATE = new Date('2026-10-03T00:00:00-05:00');

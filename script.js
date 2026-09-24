@@ -16,7 +16,7 @@
       │  It will look something like:                        │
       │  https://script.google.com/macros/s/AKfyc.../exec   │
       └──────────────────────────────────────────────────────┘ */
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywPpj3s2lQkxFG2vEaqRTbIwPTwZ6WeC-w3rZHUBLBxB2t8WqlUaKrvm2cZkO9YfFi/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOTwux13UKRj-Cgv5jI_TpXArD1foj04o2sIjr7pKvJEwf6uZZRqgKcZ2D1a4ZftT6DA/exec';
 
   // Countdown to the start of October 3 in Houston. No party start time has been announced yet.
   const EVENT_DATE = new Date('2026-10-03T00:00:00-05:00');
@@ -378,14 +378,17 @@
   /* ──────────────────────────────────────────────────────────
      ADD TO CALENDAR
      ────────────────────────────────────────────────────────── */
-  $('#btn-calendar').addEventListener('click', function () {
+  function openCalendar() {
     window.open(CALENDAR_URL, '_blank', 'noopener');
-  });
+  }
+
+  $('#btn-calendar').addEventListener('click', openCalendar);
+  $('#action-calendar').addEventListener('click', openCalendar);
 
   /* ──────────────────────────────────────────────────────────
      SHARE
      ────────────────────────────────────────────────────────── */
-  $('#btn-share').addEventListener('click', async function () {
+  async function shareEvent(button) {
     if (navigator.share) {
       try {
         await navigator.share({ title: 'ERA 30', text: SHARE_TEXT, url: SHARE_URL });
@@ -394,13 +397,17 @@
       // Fallback: copy to clipboard
       try {
         await navigator.clipboard.writeText(SHARE_URL);
-        this.textContent = 'Link Copied!';
-        setTimeout(() => { this.textContent = 'Share'; }, 2000);
+        const oldMarkup = button.innerHTML;
+        button.textContent = 'Link Copied!';
+        setTimeout(() => { button.innerHTML = oldMarkup; }, 2000);
       } catch {
         // Last resort — select & copy via prompt
         window.prompt('Copy the RSVP link:', SHARE_URL);
       }
     }
-  });
+  }
+
+  $('#btn-share').addEventListener('click', function () { shareEvent(this); });
+  $('#action-share').addEventListener('click', function () { shareEvent(this); });
 
 })();

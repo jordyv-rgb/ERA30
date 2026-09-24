@@ -788,3 +788,48 @@ body {
   .wall-sign-left { left: 5px; top: 30%; font-size: clamp(.68rem, 3.35vw, .84rem); max-width: 24vw; }
   .wall-sign-right { right: 5px; top: 31%; font-size: clamp(.69rem, 3.4vw, .86rem); max-width: 21vw; }
 }
+
+
+/* Wall-plane alignment correction */
+.wall-sign-left,
+.wall-sign-right {
+  top: 29.25%;
+  width: clamp(58px, 8.5vw, 92px);
+  font-size: clamp(.82rem, 2.15vw, 1.35rem);
+  line-height: .84;
+}
+.wall-sign-left {
+  left: clamp(7px, 2.65vw, 32px);
+  right: auto;
+  transform: perspective(520px) rotateY(24deg) rotate(-1.5deg);
+  transform-origin: left center;
+  text-align: center;
+}
+.wall-sign-right {
+  right: clamp(7px, 2.65vw, 32px);
+  left: auto;
+  transform: perspective(520px) rotateY(-24deg) rotate(1.5deg);
+  transform-origin: right center;
+  text-align: center;
+}
+@media (max-width: 520px) {
+  .wall-sign-left,
+  .wall-sign-right {
+    top: 28.75%;
+    width: 20vw;
+    max-width: 72px;
+    font-size: clamp(.64rem, 3vw, .82rem);
+    line-height: .84;
+  }
+  .wall-sign-left { left: 2px; }
+  .wall-sign-right { right: 2px; }
+}
+@media (max-width: 390px) {
+  .wall-sign-left,
+  .wall-sign-right {
+    top: 28.25%;
+    width: 19vw;
+    font-size: clamp(.6rem, 2.85vw, .73rem);
+  }
+  .hero-title::before { margin-bottom: -.08rem; }
+}

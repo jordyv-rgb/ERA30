@@ -833,3 +833,16 @@ body {
   }
   .hero-title::before { margin-bottom: -.08rem; }
 }
+
+
+/* Desktop optical-center correction: center unequal line counts on one wall axis */
+@media (min-width: 621px) {
+  .wall-sign-left,
+  .wall-sign-right { top: 32.5%; }
+  .wall-sign-left {
+    transform: translateY(-50%) perspective(520px) rotateY(24deg) rotate(-1.5deg);
+  }
+  .wall-sign-right {
+    transform: translateY(-50%) perspective(520px) rotateY(-24deg) rotate(1.5deg);
+  }
+}
